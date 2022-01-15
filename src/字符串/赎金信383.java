@@ -1,4 +1,4 @@
-package array;
+package 字符串;
 
 public class 赎金信383 {
     public boolean canConstruct(String ransomNote, String magazine) {

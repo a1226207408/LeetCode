@@ -1,4 +1,4 @@
-package array;
+package 字符串;
 
 import org.junit.jupiter.api.Test;
 

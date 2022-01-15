@@ -1,4 +1,4 @@
-package array;
+package 字符串;
 
 public class 有效的字母异位词242 {
     public boolean isAnagram(String s, String t) {
