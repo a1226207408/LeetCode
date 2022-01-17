@@ -1,8 +1,22 @@
 package 链表;
 
-public class 反转链表206 {
+import org.junit.jupiter.api.Test;
 
-    public static void main(String[] args) {
+public class 反转链表206 {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while(cur != null){
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+
+    @Test
+    public void test(){
         ListNode l = new ListNode(1);
         ListNode cur = l;
         for (int i = 2; i < 6; i++) {
@@ -13,18 +27,6 @@ public class 反转链表206 {
         System.out.println(res);
     }
 
-    public static ListNode reverseList(ListNode head) {
-        ListNode pre = null;
-        ListNode cur = head;
-        ListNode next;
-        while(cur != null){
-            next = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = next;
-        }
-        return pre;
-    }
 }
 
 class ListNode {
@@ -45,4 +47,5 @@ class ListNode {
                  s.append("NULL");
                  return s.toString();
     }
+
 }
