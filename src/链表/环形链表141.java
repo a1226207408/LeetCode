@@ -15,12 +15,9 @@ public class 环形链表141 {
     }
 //    快慢指针
     public static boolean hasCycle(ListNode head) {
-        if(head == null ||head.next == null ){
-            return false;
-        }
         ListNode sp = head;
         ListNode fp = head;
-        while(fp.next != null && fp.next.next != null){
+        while(fp != null && fp.next != null){
             fp = fp.next.next;
             sp = sp.next;
             if(fp == sp){
