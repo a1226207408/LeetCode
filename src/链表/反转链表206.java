@@ -15,6 +15,16 @@ public class 反转链表206 {
         return pre;
     }
 
+    public ListNode recursion(ListNode head){
+        if (head == null || head.next == null){
+            return head;
+        }
+        ListNode last = recursion(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
+
     @Test
     public void test(){
         ListNode l = new ListNode(1);
@@ -23,7 +33,8 @@ public class 反转链表206 {
             cur.next = new ListNode(i);
             cur = cur.next;
         }
-        ListNode res = reverseList(l);
+//        ListNode res = reverseList(l);
+        ListNode res = recursion(l);
         System.out.println(res);
     }
 
