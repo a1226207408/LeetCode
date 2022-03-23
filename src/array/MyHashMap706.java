@@ -74,6 +74,8 @@ class MyHashMap706 {
     private int hash(int num){
         return num % capacity;
     }
+
+
 }
 
 /**
