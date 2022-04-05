@@ -5,8 +5,10 @@ public class 验证二叉搜索树98 {
         return isValidBST(root, null, null);
     }
 
-    public boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
-        if (root == null) return true;
+    boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
+        if (root == null) {
+            return true;
+        }
         if (min != null && root.val <= min.val) {
             return false;
         }
