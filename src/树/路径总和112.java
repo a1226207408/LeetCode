@@ -1,19 +1,21 @@
 package 树;
 
 public class 路径总和112 {
-    public boolean flag = false;
+    boolean flag = false;
+
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        helper(root,targetSum,0);
+        find(root, targetSum);
         return flag;
     }
-    public void helper(TreeNode node,int targetSum,int sum){
-        if(node == null) return;
-        sum += node.val;
-        if(sum == targetSum && node.left == null && node.right == null){
+
+    void find(TreeNode root, int sum) {
+        if (root == null) return;
+        sum -= root.val;
+        if (sum == 0 && root.left == null && root.right == null) {
             flag = true;
             return;
         }
-        helper(node.left,targetSum,sum);
-        helper(node.right,targetSum,sum);
+        find(root.left, sum);
+        find(root.right, sum);
     }
 }
