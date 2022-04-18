@@ -12,7 +12,7 @@ public class 合并K个升序链表23 {
         ListNode p = dummy;
         // 优先级队列，最小堆
         PriorityQueue<ListNode> pq = new PriorityQueue<>(
-                lists.length, (a, b) -> (a.val - b.val));
+                lists.length, Comparator.comparingInt(a -> a.val));
         // 将 k 个链表的头结点加入最小堆
         for (ListNode head : lists) {
             if (head != null)
