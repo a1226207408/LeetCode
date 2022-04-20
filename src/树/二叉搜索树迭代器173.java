@@ -8,7 +8,6 @@ import java.util.Stack;
  * @apiNote
  */
 public class 二叉搜索树迭代器173 {
-
     Stack<TreeNode> stack = new Stack<>();
 
     public 二叉搜索树迭代器173(TreeNode root) {
