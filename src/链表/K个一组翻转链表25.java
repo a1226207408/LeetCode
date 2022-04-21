@@ -1,5 +1,7 @@
 package 链表;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * @author CWB
  * @date 2022/2/3
@@ -7,30 +9,25 @@ package 链表;
  */
 public class K个一组翻转链表25 {
     public ListNode reverseKGroup(ListNode head, int k) {
-        //判断剩余元素是否大于等于k
-        ListNode a,b;
-        a = b = head;
-        for(int i = 0;i<k;i++){
-            if(b == null){
-                return a;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        for (ListNode p = dummy; ; ) {
+            ListNode q = p;
+            for (int i = 0; i < k && q != null; i++) q = q.next;
+            if (q == null) break;
+            ListNode pre = p.next;
+            ListNode cur = pre.next;
+            for (int i = 0; i < k - 1; i++) {
+                ListNode temp = cur.next;
+                cur.next = pre;
+                pre = cur;
+                cur = temp;
             }
-            b = b.next;
+            ListNode temp = p.next;
+            temp.next = cur;
+            p.next = pre;
+            p = temp;
         }
-
-        ListNode newHead = reverse(a,b);
-        a.next = reverseKGroup(b,k);
-        return newHead;
-    }
-    public ListNode reverse(ListNode a,ListNode b){
-        ListNode pre,cur,next;
-        pre = null;
-        cur = next = a;
-        while(cur != b){
-            next = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = next;
-        }
-        return pre;
+        return dummy.next;
     }
 }
