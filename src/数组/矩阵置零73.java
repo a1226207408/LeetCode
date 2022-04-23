@@ -1,4 +1,4 @@
-package array;
+package 数组;
 
 public class 矩阵置零73 {
     public void setZeroes(int[][] matrix) {

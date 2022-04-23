@@ -1,4 +1,4 @@
-package array;
+package 数组;
 
 public class 颜色分类75 {
 

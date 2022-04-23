@@ -1,4 +1,4 @@
-package array;
+package 数组;
 
 public class 旋转图像48 {
     public void rotate(int[][] matrix) {

@@ -1,4 +1,4 @@
-package array;
+package 数组;
 
 public class 多数元素169 {
     public int majorityElement(int[] nums) {

@@ -1,9 +1,6 @@
-package array;
+package 数组;
 
 import org.junit.jupiter.api.Test;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class 有效的数独36 {
     public boolean isValidSudoku(char[][] board) {
