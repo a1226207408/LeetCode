@@ -6,46 +6,28 @@ package 数组;
  * @apiNote
  */
 public class 翻转对493 {
-    int[] temp;
-    int count;
+    int[] tmp;
     public int reversePairs(int[] nums) {
-        int len=nums.length;
-        temp = new int[len];
-        sort(nums,0,len-1);
-        return count;
+        tmp = new int[nums.length];
+        return mergeSort(nums, 0, nums.length - 1);
     }
-    void sort(int[] nums,int lo,int hi){
-        if(lo==hi){
-            return;
+    int mergeSort(int[] q, int l, int r){
+        if(l >= r) return 0;
+        int mid = l + r >> 1;
+
+        int res = mergeSort(q, l, mid) + mergeSort(q, mid + 1, r);
+        for(int i = l, j = mid + 1;i <= mid; i++){
+            while(j <= r && (long) q[j] * 2 < q[i]) j++;
+            res += j - (mid + 1);
         }
-        int mid=lo+(hi-lo)/2;
-        sort(nums,lo,mid);
-        sort(nums,mid+1,hi);
-        merge(nums,lo,mid,hi);
-    }
-    void merge(int[] nums,int lo,int mid,int hi){
-        for(int i=lo;i<=hi;i++){
-            temp[i]=nums[i];
+        int k = 0, i = l, j = mid + 1;
+        while(i <= mid && j <= r){
+            if(q[i] <= q[j]) tmp[k++] = q[i++];
+            else tmp[k++] = q[j++];
         }
-        int end=mid+1;
-        for(int i=lo;i<=mid;i++){
-            while(end<=hi && (long)nums[i] > (long)nums[end]*2){
-                end++;
-            }
-            count += end - mid -1;
-        }
-        int i=lo;
-        int j=mid+1;
-        for(int p=lo;p<=hi;p++){
-            if(i==mid+1){
-                nums[p]=temp[j++];
-            }else if(j==hi+1){
-                nums[p]=temp[i++];
-            }else if(temp[i] >temp[j]){
-                nums[p]=temp[j++];
-            }else{
-                nums[p]=temp[i++];
-            }
-        }
+        while(i <= mid) tmp[k++] = q[i++];
+        while(j <= r) tmp[k++] = q[j++];
+        for(i = l, j = 0; i <= r; i++, j++) q[i] = tmp[j];
+        return res;
     }
 }
