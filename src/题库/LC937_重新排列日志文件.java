@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @date 2022/5/3
  * @apiNote
  */
-public class LT937_重新排列日志文件 {
+public class LC937_重新排列日志文件 {
     public String[] reorderLogFiles(String[] logs) {
         Arrays.sort(logs,(s1, s2) -> compare(s1,s2));
         return logs;
